@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using News.ViewModels;
+using News.Services;
 
 namespace News
 {
@@ -8,6 +9,7 @@ namespace News
         public static void Initialize()
         {
             var containerBuilder = new ContainerBuilder();
+            containerBuilder.RegisterType<NewsService>();
             containerBuilder.RegisterType<MainShell>();
 
             containerBuilder.RegisterAssemblyTypes(typeof(App).Assembly)
